@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conveter</title>
+</head>
+<body>
+    <label>Enter a Temperature</label> <br>
+    <input type="text" name="" id="textBox"> <br>
+    <label for="">Convert to:</label> <br>
+    <label for="">Celsius</label>
+    <input type="radio" name="unit" id="cBtn"> <br>
+    <label for="">Fahrenheit</label>
+    <input type="radio" name="unit" id="fBtn"> <br>
+    <!-- <label for="">Ace</label>
+    <input type="radio" name="unit" id="aBtn"> <br> -->
+    <button type="button" id="submitBtn">Submit</button>
+    <label for="" id="tempLabel"></label>
+
+    <script>
+        document.getElementById("submitBtn").onclick = function(){
+            let temp;
+             if(document.getElementById('cBtn').checked){
+                temp =document.getElementById("textBox").value;
+                temp=Number(temp);
+                temp=toCelsous(temp)
+                document.getElementById("tempLabel").innerHTML=temp +"°C"
+             }
+             
+            else if(document.getElementById('fBtn').checked){
+                temp =document.getElementById("textBox").value;
+                temp=Number(temp);
+                temp=toFahernherit(temp)
+                document.getElementById("tempLabel").innerHTML=temp +"°C"
+             }
+            // else if(document.getElementById('aBtn').checked){
+            //     temp =document.getElementById("textBox").value;
+            //     temp=Number(temp);
+            //     temp=toAce(temp)
+            //     document.getElementById("tempLabel").innerHTML=temp +"°C"
+            //  }
+             else{
+                document.getElementById("tempLabel").innerHTML ="Select a Unit";
+             }
+             
+        }
+
+        
+     
+    
+       function toCelsous(temp){
+        return(temp-32)*(5/9);  
+         }
+         function toFahernherit(temp){
+            return temp *9/5+32;
+         }
+         function toAce(temp){
+            return temp *9/5+32;
+         }
+
+    </script>
+</body>
+</html>
